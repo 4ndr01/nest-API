@@ -13,19 +13,31 @@ import { PersonModule } from './person/person.module';
 import { DbModule } from './db/db.module';
 
 @Module({
+
   imports: [
-    DbModule,
-    AddressModule,
-    BuildingModule,
-    ApartmentModule,
-    ApartmentOptionModule,
-    ApartmentTypeModule,
-    FacilityModule,
-    OwnerModule,
-    SecureFacilityModule,
-    TenantModule,
-    PersonModule,
-  ],
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'evaAapi',
+      synchronize: false,
+      entities: [],
+    }),
+        DbModule,
+        AddressModule,
+        BuildingModule,
+        ApartmentModule,
+        ApartmentOptionModule,
+        ApartmentTypeModule,
+        FacilityModule,
+        OwnerModule,
+        SecureFacilityModule,
+        TenantModule,
+        PersonModule,
+      ],
+
   controllers: [],
   providers: [],
 })
